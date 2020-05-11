@@ -3,9 +3,8 @@ dist: trusty
 node_js:
   - 10
 env:
-  - NODE_ENV=production
   # install browser binaries in node_modules
-  - PLAYWRIGHT_BROWSERS_PATH=0
+  - NODE_ENV=production PLAYWRIGHT_BROWSERS_PATH=0
 install:
 - npm --production=false install
 cache:
