@@ -1,11 +1,14 @@
 language: node_js
-dist: bionic
+dist: trusty
 node_js:
   - 10
 env:
   - NODE_ENV=production
 install:
 - npm --production=false install
+cache:
+  directories:
+    - node_modules
 jobs:
   include:
     - stage: test
