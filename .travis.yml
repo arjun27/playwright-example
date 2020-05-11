@@ -2,10 +2,10 @@ language: node_js
 dist: trusty
 node_js:
   - 10
-addons:
-  apt:
-    packages:
-    - libgbm1
+# addons:
+#   apt:
+#     packages:
+#     - libgbm1
 install:
 - npm --production=false install
 jobs:
