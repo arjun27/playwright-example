@@ -1,8 +1,12 @@
-const { webkit } = require('playwright');
+const playwright = require('playwright');
 
-(async() => {
-    const browser = await webkit.launch();
+(async () => {
+  for (const browserType of ['chromium', 'firefox', 'webkit']) {
+    const browser = await playwright[browserType].launch();
     const page = await browser.newPage();
-    console.log(await page.evaluate(() => navigator.userAgent));
+
+    const userAgent = await page.evaluate(() => navigator.userAgent);
+    console.log(`${browserType}: ${userAgent}`);
     await browser.close();
+  }
 })();
