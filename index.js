@@ -1,9 +1,8 @@
-const { chromium } = require('playwright-chromium');
+const { webkit } = require('playwright');
 
 (async() => {
-    const browser = await chromium.launch();
+    const browser = await webkit.launch();
     const page = await browser.newPage();
-    await page.goto('https://example.com');
-    console.log(await page.title());
+    console.log(await page.evaluate(() => navigator.userAgent));
     await browser.close();
 })();
